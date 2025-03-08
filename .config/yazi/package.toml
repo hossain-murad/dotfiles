@@ -1,0 +1,27 @@
+[plugin]
+deps = []
+
+[[flavor.deps]]
+use = "gosxrgxx/flexoki-dark"
+rev = "65ba744"
+hash = "13cc1e635e5571d749f606bdbde23a0d"
+
+[[flavor.deps]]
+use = "ashen-org/ashen:ashen"
+rev = "1d7b190"
+hash = "a6f097910912721681300869a94d1fd8"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "1a419b2"
+hash = "c40e434318a8ceffd01842f8dfb2390e"
+
+[[flavor.deps]]
+use = "Chromium-3-Oxide/everforest-medium"
+rev = "65bc09b"
+hash = "2bc39a2ccc968ba4d50ea060e0722967"
+
+[[flavor.deps]]
+use = "sanjinso/monokai-vibrant"
+rev = "8b68223"
+hash = "f4458ebaf8961d714eba05fe5ba40166"
