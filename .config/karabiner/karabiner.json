@@ -1,0 +1,822 @@
+{
+  "profiles": [
+    {
+      "complex_modifications": {
+        "rules": [
+          {
+            "description": "CAPS_LOCK -> HYPER || ESCAPE (If Alone)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": {}
+                },
+                "to": [
+                  {
+                    "key_code": "left_shift",
+                    "modifiers": ["left_command", "left_control", "left_option"]
+                  }
+                ],
+                "to_if_alone": [{ "key_code": "escape" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Hyper + A Sublayer for App Launchers",
+            "manipulators": [
+              {
+                "description": "Activate Hyper + A Sublayer",
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_a",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "shell_command": "echo 'Hyper + A Sublayer activated' >> /tmp/karabiner.log"
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_a",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "shell_command": "echo 'Hyper + A Sublayer deactivated' >> /tmp/karabiner.log"
+                  }
+                ]
+              },
+              {
+                "description": "Open Ghostty",
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Ghostty.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open DaVinci Resolve",
+                "type": "basic",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'DaVinci Resolve.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open Notes",
+                "type": "basic",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Notes.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open Arc",
+                "type": "basic",
+                "from": {
+                  "key_code": "b",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Arc.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open Visual Studio Code",
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Visual Studio Code.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open PowerPoint",
+                "type": "basic",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Microsoft PowerPoint.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open Notion",
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Notion.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open PyCharm",
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'PyCharm.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open Spark",
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Spark.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open WhatsApp",
+                "type": "basic",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'WhatsApp.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open Telegram",
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Telegram.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open HandBrake",
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'HandBrake.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open Eclipse",
+                "type": "basic",
+                "from": {
+                  "key_code": "e",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Eclipse.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open Zoom",
+                "type": "basic",
+                "from": {
+                  "key_code": "z",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'zoom.us.app'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_a",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Hyper + R Sublayer for Raycast Extensions",
+            "manipulators": [
+              {
+                "description": "Activate Hyper + R Sublayer",
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_r",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "shell_command": "echo 'Hyper + R Sublayer activated' >> /tmp/karabiner.log"
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_r",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "shell_command": "echo 'Hyper + R Sublayer deactivated' >> /tmp/karabiner.log"
+                  }
+                ]
+              },
+              {
+                "description": "Open Arc Search",
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/the-browser-company/arc/search"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Record Screen with CleanShot X",
+                "type": "basic",
+                "from": {
+                  "key_code": "x",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/Aayush9029/cleanshotx/record-screen"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Quick Translate with Google Translate",
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/gebeto/translate/quick-translate"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Search for GIF",
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/josephschmitt/gif-search/search"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open YouTube Quick Link",
+                "type": "basic",
+                "from": {
+                  "key_code": "y",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open https://www.youtube.com/"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Confetti",
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/raycast/raycast/confetti"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "File Search",
+                "type": "basic",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/raycast/file-search/search-files"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Lock Screen",
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/raycast/system/lock-screen"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Open Camera",
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/raycast/system/open-camera"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Empty Trash",
+                "type": "basic",
+                "from": {
+                  "key_code": "e",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/raycast/system/empty-trash"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Quit All Applications",
+                "type": "basic",
+                "from": {
+                  "key_code": "q",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/raycast/system/quit-all-applications"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Search YouTube Videos",
+                "type": "basic",
+                "from": {
+                  "key_code": "y",
+                  "modifiers": { "mandatory": ["any"] }
+                },
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/tonka3000/youtube/search-videos?arguments=%7B%22query%22%3A%22%22%7D"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+,",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "comma",
+                  "modifiers": {
+                    "mandatory": ["command", "shift", "option", "control"]
+                  }
+                },
+                "to": [],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+.",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "mandatory": ["command", "shift", "option", "control"]
+                  }
+                },
+                "to": [],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+/",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "slash",
+                  "modifiers": {
+                    "mandatory": ["command", "shift", "option", "control"]
+                  }
+                },
+                "to": [],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Toggle caps_lock by pressing left_shift then right_shift",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "left_shift",
+                  "modifiers": {
+                    "mandatory": ["right_shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [{ "key_code": "caps_lock" }],
+                "to_if_alone": [{ "key_code": "left_shift" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "right_shift",
+                  "modifiers": {
+                    "mandatory": ["left_shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [{ "key_code": "caps_lock" }],
+                "to_if_alone": [{ "key_code": "right_shift" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Shifts Move Forward and Backward by 1 word",
+            "manipulators": [
+              {
+                "from": { "key_code": "right_shift" },
+                "to": [{ "key_code": "right_shift" }],
+                "to_if_alone": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "left_shift" },
+                "to": [{ "key_code": "left_shift" }],
+                "to_if_alone": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Hyper + i/j/k/l == vim directional Keys",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to": [{ "key_code": "up_arrow" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to": [{ "key_code": "left_arrow" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to": [{ "key_code": "down_arrow" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to": [{ "key_code": "right_arrow" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["left_command"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "name": "Default profile",
+      "selected": true,
+      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+    }
+  ]
+}
