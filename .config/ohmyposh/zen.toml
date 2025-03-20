@@ -123,6 +123,20 @@ final_space = true
     type = 'node'
     style = 'powerline'
 
+  # Execution time segment
+  [[blocks.segments]]
+  type = "executiontime"
+  style = "diamond"
+  background = "p:teal"
+  foreground = "#ffffff"
+  trailing_diamond = ''
+  template = " \uf252 {{ .FormattedMs }}\u2800"
+  
+    [blocks.segments.properties]
+    always_enabled = true
+
+
+
   [[blocks.segments]]
     trailing_diamond = ''
     template = ' ♥ {{ .CurrentDate | date .Format }} '
@@ -133,6 +147,7 @@ final_space = true
 
     [blocks.segments.properties]
       time_format = '3:04'
+
 
 [[blocks]]
   alignment = "left"
