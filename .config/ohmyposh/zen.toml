@@ -115,13 +115,7 @@ final_space = true
     fetch_status = true
     fetch_upstream_icon = true
 
-  [[blocks.segments]]
-    template = '  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
-    foreground = 'p:white'
-    powerline_symbol = ''
-    background = 'p:sky'
-    type = 'node'
-    style = 'powerline'
+
 
   # Execution time segment
   [[blocks.segments]]
