@@ -59,7 +59,7 @@ final_space = true
     style = 'diamond'
 
   [[blocks.segments]]
-    template = '   {{ .Path }} '
+    template = '  {{ .Path }} '
     foreground = 'p:white'
     powerline_symbol = ''
     background = 'p:blush'
