@@ -1,0 +1,127 @@
+version = 3
+final_space = true
+
+[palette]
+  blush = '#DA627D'
+  plum = '#9A348E'
+  salmon = '#FCA17D'
+  sky = '#86BBD8'
+  tan = '#CC3802'
+  teal = '#047E84'
+  teal_blue = '#33658A'
+  white = '#FFFFFF'
+  black = '#000000'
+
+[upgrade]
+  source = 'cdn'
+  interval = '168h'
+  auto = false
+  notice = false
+
+[[blocks]]
+  type = 'rprompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    leading_diamond = ''
+    template = '{{ if .Env.PNPPSHOST }}  {{ .Env.PNPPSHOST }} {{ end }}'
+    foreground = 'p:white'
+    background = 'p:tan'
+    type = 'text'
+    style = 'diamond'
+
+  [[blocks.segments]]
+    template = '{{ if .Env.PNPPSSITE }}  {{ .Env.PNPPSSITE }}{{ end }}'
+    foreground = 'p:white'
+    powerline_symbol = ''
+    background = 'p:teal'
+    type = 'text'
+    style = 'powerline'
+
+  [[blocks.segments]]
+    trailing_diamond = ''
+    template = '{{ if .Env.PNPPSSITE }} {{ end }}'
+    foreground = 'p:white'
+    background = 'p:teal'
+    type = 'text'
+    style = 'diamond'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    leading_diamond = ''
+    template = '{{ .UserName }} '
+    foreground = 'p:white'
+    background = 'p:plum'
+    type = 'session'
+    style = 'diamond'
+
+  [[blocks.segments]]
+    template = '   {{ .Path }} '
+    foreground = 'p:white'
+    powerline_symbol = ''
+    background = 'p:blush'
+    type = 'path'
+    style = 'powerline'
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    template = '​'
+    foreground = 'p:sky'
+    background = 'p:sky'
+    type = 'text'
+    style = 'powerline'
+    powerline_symbol = ''
+
+   [[blocks.segments]]
+    template = '​'  # Thin space character
+    foreground = 'p:teal_blue'
+    background = 'p:teal_blue'
+    type = 'text'
+    style = 'powerline'
+    powerline_symbol = ''
+
+   [[blocks.segments]]
+    template = '​'  # Thin space character
+    foreground = 'p:teal'
+    background = 'p:teal'
+    type = 'text'
+    style = 'powerline'
+    powerline_symbol = ''
+
+  [[blocks.segments]]
+    template = ' ➜ ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}) '
+    foreground = 'p:black'
+    powerline_symbol = ''
+    background = 'p:salmon'
+    type = 'git'
+    style = 'powerline'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      fetch_stash_count = true
+      fetch_status = false
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    template = '  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
+    foreground = 'p:white'
+    powerline_symbol = ''
+    background = 'p:sky'
+    type = 'node'
+    style = 'powerline'
+
+  [[blocks.segments]]
+    trailing_diamond = ''
+    template = ' ♥ {{ .CurrentDate | date .Format }} '
+    foreground = 'p:white'
+    background = 'p:teal_blue'
+    type = 'time'
+    style = 'diamond'
+
+    [blocks.segments.properties]
+      time_format = '3:04'
