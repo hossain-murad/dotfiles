@@ -96,7 +96,7 @@ final_space = true
   [[blocks.segments]]
   type = "git"
   style = "powerline"
-  background = "#fffb38"
+  background = "#F7768D"
   foreground = "#193549"
   leading_diamond = "\ue0b6"
   powerline_symbol = "\ue0b0"
@@ -114,7 +114,6 @@ final_space = true
     fetch_stash_count = true
     fetch_status = true
     fetch_upstream_icon = true
-
 
 
   # Execution time segment
