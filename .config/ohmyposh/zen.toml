@@ -127,7 +127,7 @@ final_space = true
   [[blocks.segments]]
   type = "executiontime"
   style = "diamond"
-  background = "p:teal"
+  background = "p:teal_blue"
   foreground = "#ffffff"
   trailing_diamond = ''
   template = " \uf252 {{ .FormattedMs }}\u2800"
@@ -137,16 +137,16 @@ final_space = true
 
 
 
-  [[blocks.segments]]
-    trailing_diamond = ''
-    template = ' ♥ {{ .CurrentDate | date .Format }} '
-    foreground = 'p:white'
-    background = 'p:teal_blue'
-    type = 'time'
-    style = 'diamond'
+#[[blocks.segments]]
+#   trailing_diamond = ''
+#    template = ' ♥ {{ .CurrentDate | date .Format }} '
+#    foreground = 'p:white'
+#    background = 'p:teal_blue'
+#    type = 'time'
+#    style = 'diamond'
 
-    [blocks.segments.properties]
-      time_format = '3:04'
+# [blocks.segments.properties]
+#time_format = '3:04'
 
 
 [[blocks]]
