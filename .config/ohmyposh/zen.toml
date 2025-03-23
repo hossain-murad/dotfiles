@@ -52,7 +52,7 @@ final_space = true
 
   [[blocks.segments]]
     leading_diamond = ''
-    template = '{{ .UserName }} '
+    template = "\uf179 {{ .UserName }} "
     foreground = 'p:white'
     background = 'p:plum'
     type = 'session'
@@ -78,7 +78,7 @@ final_space = true
     powerline_symbol = ''
 
    [[blocks.segments]]
-    template = '​'  # Thin space character
+    template = '​'
     foreground = 'p:teal_blue'
     background = 'p:teal_blue'
     type = 'text'
@@ -86,7 +86,7 @@ final_space = true
     powerline_symbol = ''
 
    [[blocks.segments]]
-    template = '​'  # Thin space character
+    template = '​'
     foreground = 'p:teal'
     background = 'p:teal'
     type = 'text'
@@ -124,6 +124,9 @@ final_space = true
   foreground = "#ffffff"
   trailing_diamond = ''
   template = " \uf252 {{ .FormattedMs }}\u2800"
+  background_templates = [
+    "{{ if gt .Code 0 }}#c40202{{ end }}"
+  ]
   
     [blocks.segments.properties]
     always_enabled = true
