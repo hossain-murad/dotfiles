@@ -92,12 +92,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open Notes",
+                                "description": "Open Notion",
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a 'Notes.app'" }],
+                                "to": [{ "shell_command": "open -a 'Notion.app'" }],
                                 "type": "basic"
                             },
                             {
@@ -156,12 +156,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open Notion",
+                                "description": "Open Obsidian",
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a 'Notion.app'" }],
+                                "to": [{ "shell_command": "open -a 'Obsidian.app'" }],
                                 "type": "basic"
                             },
                             {
@@ -209,7 +209,7 @@
                                     "key_code": "w",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open https://web.whatsapp.com/" }],
+                                "to": [{ "shell_command": "open -a WhatsApp.app" }],
                                 "type": "basic"
                             },
                             {
@@ -225,7 +225,7 @@
                                     "key_code": "t",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open https://web.telegram.org/k/" }],
+                                "to": [{ "shell_command": "open -a Telegram.app " }],
                                 "type": "basic"
                             },
                             {
@@ -252,22 +252,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open Eclipse",
-                                "from": {
-                                    "key_code": "e",
-                                    "modifiers": { "mandatory": ["any"] }
-                                },
-                                "to": [{ "shell_command": "open -a 'Eclipse.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_a",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+
                                 "description": "Open Zoom",
                                 "from": {
                                     "key_code": "z",
@@ -432,7 +417,7 @@
                                     "key_code": "l",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open raycast://extensions/raycast/system/lock-screen" }],
+                                "to": [{ "shell_command": "shortcuts run \"Lock Screen\"" }],
                                 "type": "basic"
                             },
                             {

@@ -12,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 #plugins 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search dirhistory)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -25,6 +25,11 @@ alias ls='colorls -a --sd  --tree=1'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+#Tmux
+eval "$(/opt/homebrew/bin/brew shellenv)"
+if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then
+  exec tmux attach || exec tmux
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -109,6 +114,15 @@ function y() {
 export JAVA_HOME=$(/usr/libexec/java_home -v 23.0.2)
 export PATH=$JAVA_HOME/bin:$PATH
 
+jrun() {
+  filename="${1%.*}"
+  javac "$filename.java" && java "$filename"
+}
+
+
 #oh-my-posh
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
+eval "$(gh copilot alias -- zsh)"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="`ruby -e puts Gem.user_dir`/bin:$PATH"

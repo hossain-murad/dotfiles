@@ -34,8 +34,8 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
-    ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
+      opts.sources = opts.sources or {}
       table.insert(opts.sources, { name = "emoji" })
     end,
   },
@@ -66,49 +66,42 @@ return {
   -- add pyright to lspconfig
   {
     "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
-        pyright = {},
-      },
-    },
+    opts = function(_, opts)
+      opts.servers = opts.servers or {}
+      opts.servers.pyright = opts.servers.pyright or {}
+    end,
   },
 
   -- add tsserver and setup with typescript.nvim instead of lspconfig
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "jose-elias-alvarez/typescript.nvim",
-      init = function()
-        require("lazyvim.util").lsp.on_attach(function(_, buffer)
+      {
+        "jose-elias-alvarez/typescript.nvim",
+        init = function()
+          require("lazyvim.util").lsp.on_attach(function(_, buffer)
           -- stylua: ignore
-          vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
-          vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
-        end)
-      end,
-    },
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        -- tsserver will be automatically installed with mason and loaded with lspconfig
-        tsserver = {},
-      },
-      -- you can do any additional lsp server setup here
-      -- return true if you don't want this server to be setup with lspconfig
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
-      setup = {
-        -- example to setup with typescript.nvim
-        tsserver = function(_, opts)
-          require("typescript").setup({ server = opts })
-          return true
+          vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", { buffer = buffer, desc = "Organize Imports" })
+            vim.keymap.set(
+              "n",
+              "<leader>cR",
+              "<cmd>TypescriptRenameFile<CR>",
+              { buffer = buffer, desc = "Rename File" }
+            )
+          end)
         end,
-        -- Specify * to use this function as a fallback for any server
-        -- ["*"] = function(server, opts) end,
       },
     },
+    opts = function(_, opts)
+      opts.servers = opts.servers or {}
+      opts.servers.tsserver = opts.servers.tsserver or {}
+
+      opts.setup = opts.setup or {}
+      opts.setup.tsserver = function(_, ts_opts)
+        require("typescript").setup({ server = ts_opts })
+        return true
+      end
+    end,
   },
 
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
